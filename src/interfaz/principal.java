@@ -34,59 +34,68 @@ public class principal extends javax.swing.JFrame {
         cmdGuardar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtMostrar = new javax.swing.JTextArea();
+        txtResultado = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
-        cmdMostrar = new javax.swing.JButton();
-        cmdCambiar = new javax.swing.JButton();
         cmdBorrar = new javax.swing.JButton();
+        cmdCambiar = new javax.swing.JButton();
+        cmdMostrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Ejercicio 4");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 100, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingresar Contraseña"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 160, 30));
+        jPanel2.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 160, 30));
 
         cmdGuardar.setText("Guardar");
-        jPanel2.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 90, 30));
+        cmdGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdGuardarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 100, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, 120));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 210, 120));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Contaseñas Guardadas"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Contraseñas Guardadas"));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtMostrar.setColumns(20);
-        txtMostrar.setRows(5);
-        jScrollPane1.setViewportView(txtMostrar);
+        txtResultado.setEditable(false);
+        txtResultado.setColumns(20);
+        txtResultado.setRows(5);
+        jScrollPane1.setViewportView(txtResultado);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 190, 100));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 170, 90));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 230, 150));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 210, 140));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones"));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cmdMostrar.setText("Mostrar");
-        jPanel4.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 120, 40));
+        cmdBorrar.setText("Nuevo");
+        jPanel4.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 100, 40));
 
         cmdCambiar.setText("Cambiar");
-        jPanel4.add(cmdCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 120, 40));
+        jPanel4.add(cmdCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, 40));
 
-        cmdBorrar.setText("Nuevo");
-        jPanel4.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 120, 40));
+        cmdMostrar.setText("Mostrar");
+        jPanel4.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 100, 40));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 210, 280));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 150, 260));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,8 +106,11 @@ public class principal extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,6 +159,6 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtContraseña;
-    private javax.swing.JTextArea txtMostrar;
+    private javax.swing.JTextArea txtResultado;
     // End of variables declaration//GEN-END:variables
 }
