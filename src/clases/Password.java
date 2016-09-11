@@ -12,7 +12,8 @@ import javax.swing.JOptionPane;
  * @author USUARIO
  */
 public class Password {
-     private String contraseña;
+
+    private String contraseña;
     private int longitud = 8;
 
     public Password(String contraseña) {
@@ -37,21 +38,36 @@ public class Password {
     }
 
     public String CambiarContraseña() {
-        String aux;
-        int res;
-        res = JOptionPane.showConfirmDialog(null, "¿Seguro que desea cambiar la contraseña?", "¡Alerta!", JOptionPane.YES_NO_OPTION);
-        if (res == 0) {
+        String aux = null;
+        int res, sw; 
+        boolean au = true;
+        do{
+            sw=1;
+            
+        try {
+            aux = JOptionPane.showInputDialog("Digite una nueva contraseña");
+        
+        if (aux.length() < 6) {
 
-            aux = JOptionPane.showInputDialog(this, "Digite su nueva contraseña");
-            this.contraseña = aux;
-
-            while (aux.length() < 6) {
-                aux = JOptionPane.showInputDialog(this, "Contraseña debil, digite otra contraseña");
-            }
+            JOptionPane.showMessageDialog(null, "Contraseña débil, intente de nuevo");
 
         } else {
-            JOptionPane.showInputDialog("Su contraseña es: " + this.contraseña);
+            JOptionPane.showMessageDialog(null, "Nueva contraseña guardada");
+            this.contraseña = aux;
         }
+        } catch (NullPointerException e) {
+            res = JOptionPane.showConfirmDialog(null, "¿Desea Abandonar?", "Salir", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                au = false;
+                sw =1;
+            }
+            else{
+                sw=0;
+            }
+        }
+        }while (sw==0);
+
+        
         return this.contraseña;
 
     }
