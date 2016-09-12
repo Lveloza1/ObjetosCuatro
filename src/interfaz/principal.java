@@ -36,8 +36,8 @@ public class principal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        txtContrasena = new javax.swing.JTextField();
         cmdGuardar = new javax.swing.JButton();
+        txtContrasena = new javax.swing.JPasswordField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
@@ -56,7 +56,6 @@ public class principal extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingresar Contraseña"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 130, 30));
 
         cmdGuardar.setText("Guardar");
         cmdGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +64,7 @@ public class principal extends javax.swing.JFrame {
             }
         });
         jPanel2.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 90, 30));
+        jPanel2.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 170, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 210, 120));
 
@@ -243,7 +243,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txtContrasena;
+    private javax.swing.JPasswordField txtContrasena;
     private javax.swing.JTextArea txtResultado;
     // End of variables declaration//GEN-END:variables
 }
