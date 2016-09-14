@@ -14,10 +14,11 @@ import javax.swing.JOptionPane;
 public class Password {
 
     private String contraseña;
-    private int longitud = 8;
+    private int longitud;
 
     public Password(String contraseña) {
         this.contraseña = contraseña;
+        this.longitud = 8;
 
     }
 
@@ -38,38 +39,14 @@ public class Password {
     }
 
     public String CambiarContraseña() {
-        String aux = null;
-        int res, sw, sw1;
-        boolean au = true;
-        do {
-            sw = 1;
+        String aux;
 
-            try {
-                aux = JOptionPane.showInputDialog("Digite una nueva contraseña");
+        JOptionPane.showMessageDialog(null, "Digite una nueva contraseña");
+        aux=this.contraseña;
 
-                if (aux.length() < 6) {
+        JOptionPane.showMessageDialog(null, "Nueva contraseña guardada");
 
-                    JOptionPane.showMessageDialog(null, "Contraseña débil, intente de nuevo");
-                    sw1 = 0;
-
-                } else {
-                    JOptionPane.showMessageDialog(null, "Nueva contraseña guardada");
-                    this.contraseña = aux;
-                    sw1 = 1;
-                }
-
-            } catch (NullPointerException e) {
-                res = JOptionPane.showConfirmDialog(null, "¿Desea Abandonar?", "Salir", JOptionPane.YES_NO_OPTION);
-                if (res == 0) {
-                    au = false;
-                    sw = 1;
-                } else {
-                    sw = 0;
-                }
-            }
-        } while (sw == 0);
-
-        return this.contraseña;
+        return (aux);
 
     }
 }
