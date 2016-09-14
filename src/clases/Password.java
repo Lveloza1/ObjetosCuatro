@@ -38,15 +38,17 @@ public class Password {
         this.longitud = longitud;
     }
 
-    public String CambiarContraseña() {
+    public String NiveldeSeguridad() {
+        int n;
         String aux;
+        n = this.contraseña.length();
+        if (n < 6) {
+            aux=("La contraseña es débil");
 
-        JOptionPane.showMessageDialog(null, "Digite una nueva contraseña");
-        aux=this.contraseña;
-
-        JOptionPane.showMessageDialog(null, "Nueva contraseña guardada");
+        } else {
+            aux=("La contraseña es fuerte");
+        }
 
         return (aux);
-
     }
 }

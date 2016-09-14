@@ -65,13 +65,13 @@ public class principal extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingresar Contraseña"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cmdGuardar.setText("Guardar");
+        cmdGuardar.setText("Guardar Contraseña");
         cmdGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 90, 30));
+        jPanel2.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 190, 30));
 
         txtContrasenaNueva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,13 +81,13 @@ public class principal extends javax.swing.JFrame {
         jPanel2.add(txtContrasenaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 170, 30));
         jPanel2.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 170, 30));
 
-        cmdGuardarNueva.setText("Guardar");
+        cmdGuardarNueva.setText("Guardar Nueva Contraseña");
         cmdGuardarNueva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdGuardarNuevaActionPerformed(evt);
             }
         });
-        jPanel2.add(cmdGuardarNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 90, 30));
+        jPanel2.add(cmdGuardarNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 190, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 210, 190));
 
@@ -155,10 +155,13 @@ public class principal extends javax.swing.JFrame {
     private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
 
         if (txtContrasenaNueva.getText().trim().isEmpty()) {
-            txtResultado.setText("Su contraseña es: " + m.getContraseña() + "\n");
+            txtResultado.setText("Su contraseña es: " + m.getContraseña() + "\n"
+                    + m.NiveldeSeguridad());
         } else {
             txtResultado.setText("Su contraseña es: " + m.getContraseña() + "\n"
-                    + "Su nueva contraseña es: " + p.getContraseña());
+                    + m.NiveldeSeguridad() + "\n"
+                    + "Su nueva contraseña es: " + p.getContraseña() + "\n"
+                    + p.NiveldeSeguridad());
         }
 
         cmdMostrar.setEnabled(false);
@@ -213,13 +216,13 @@ public class principal extends javax.swing.JFrame {
 
             cont = txtContrasena.getText();
             m = new Password(cont);
+
             JOptionPane.showMessageDialog(this, "Contraseña Guardada");
             cmdMostrar.setEnabled(true);
             cmdCambiar.setEnabled(true);
             txtContrasena.setEditable(false);
             cmdGuardar.setEnabled(false);
         }
-       
 
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdGuardarActionPerformed
@@ -238,6 +241,7 @@ public class principal extends javax.swing.JFrame {
 
             contn = txtContrasenaNueva.getText();
             p = new Password(contn);
+            p.NiveldeSeguridad();
             JOptionPane.showMessageDialog(this, "Nueva contraseña guardada");
 
             cmdMostrar.setEnabled(true);
